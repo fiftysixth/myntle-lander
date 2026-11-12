@@ -13,7 +13,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-page">
       <div className="mx-auto flex h-16 w-full max-w-[1120px] items-center justify-between gap-6 px-6 lg:px-8">
-        <Brand />
+        <Brand wordmarkClassName="max-[319px]:hidden" />
 
         <nav
           aria-label="Primary"
@@ -30,7 +30,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2.5">
+        <div className="flex shrink-0 items-center gap-2.5">
           <ThemeToggle />
           <ButtonLink
             href={APP_URL}

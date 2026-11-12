@@ -9,7 +9,7 @@ export function Hero() {
     <section className="mx-auto w-full max-w-[1120px] px-6 pb-16 pt-12 sm:pt-16 lg:px-8 lg:pb-20 lg:pt-20">
       <div className="max-w-[800px]">
         <Reveal>
-          <h1 className="text-[clamp(2rem,4.4vw,2.875rem)] font-normal leading-[1.12] tracking-[-0.03em]">
+          <h1 className="text-[clamp(1.5625rem,7.1vw,2rem)] font-normal leading-[1.12] tracking-[-0.03em] sm:text-[clamp(2rem,4.4vw,2.875rem)]">
             <span className="block text-ink-3 md:whitespace-nowrap">
               Ask what is happening,
             </span>{" "}

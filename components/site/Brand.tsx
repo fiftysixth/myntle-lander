@@ -1,7 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-export function Brand({ compact = false }: { compact?: boolean }) {
+export function Brand({
+  compact = false,
+  wordmarkClassName,
+}: {
+  compact?: boolean;
+  wordmarkClassName?: string;
+}) {
   return (
     <Link
       href="/"
@@ -16,7 +23,12 @@ export function Brand({ compact = false }: { compact?: boolean }) {
         priority
         className="shrink-0"
       />
-      <span className="text-[15px] font-semibold tracking-[-0.02em] text-ink">
+      <span
+        className={cn(
+          "text-[15px] font-semibold tracking-[-0.02em] text-ink",
+          wordmarkClassName,
+        )}
+      >
         Myntle
       </span>
     </Link>
