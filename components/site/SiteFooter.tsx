@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { IconBrandGithub, IconBrandX } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandX, IconMail } from "@tabler/icons-react";
 import { Brand } from "@/components/site/Brand";
 import { Reveal } from "@/components/site/Reveal";
 import {
   APP_URL,
+  CONTACT_EMAIL,
   DOCS_URL,
   NEAR_AI_URL,
   NEAR_INTENTS_URL,
@@ -36,6 +37,10 @@ const GROUPS = [
       { label: "Privacy Policy", href: "/privacy" },
     ],
   },
+  {
+    title: "Contact",
+    links: [{ label: "Email", href: `mailto:${CONTACT_EMAIL}` }],
+  },
 ] as const;
 
 function FooterLink({
@@ -50,12 +55,12 @@ function FooterLink({
   const className =
     "text-[13px] leading-none text-ink-2 transition-colors duration-150 hover:text-ink";
 
-  if (external) {
+  if (external || href.startsWith("mailto:")) {
     return (
       <a
         href={href}
-        target="_blank"
-        rel="noreferrer"
+        target={external ? "_blank" : undefined}
+        rel={external ? "noreferrer" : undefined}
         className={className}
       >
         {label}
@@ -75,7 +80,7 @@ export function SiteFooter() {
     <footer className="border-t border-line bg-canvas">
       <Reveal>
       <div className="mx-auto w-full max-w-[1120px] px-6 py-14 lg:px-8 lg:py-16">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-[minmax(0,1.5fr)_repeat(3,minmax(0,1fr))]">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-[minmax(0,1.5fr)_repeat(4,minmax(0,1fr))]">
           <div className="col-span-2 max-w-[340px] lg:col-span-1">
             <Brand />
             <p className="mt-3 text-[13px] leading-relaxed text-ink-2">
@@ -100,6 +105,13 @@ export function SiteFooter() {
                 className="grid size-8 place-items-center rounded-full bg-surface text-ink-2 shadow-btn transition-[background-color,color] duration-150 hover:bg-inset hover:text-ink"
               >
                 <IconBrandX size={15} stroke={1.8} aria-hidden />
+              </a>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                aria-label="Email Myntle"
+                className="grid size-8 place-items-center rounded-full bg-surface text-ink-2 shadow-btn transition-[background-color,color] duration-150 hover:bg-inset hover:text-ink"
+              >
+                <IconMail size={15} stroke={1.8} aria-hidden />
               </a>
             </div>
           </div>

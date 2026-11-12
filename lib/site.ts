@@ -26,6 +26,7 @@ export const SOCIAL_LINKS = {
 
 export const DOCS_URL =
   "https://github.com/myntlefinance/myntle#readme";
+export const CONTACT_EMAIL = "support@myntle.xyz";
 export const VERIFICATION_URL =
   "https://github.com/myntlefinance/myntle#verification";
 export const ISSUES_URL =
