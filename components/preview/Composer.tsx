@@ -5,8 +5,9 @@ import {
 } from "@tabler/icons-react";
 
 /**
- * The app's composer, in its tall form: the draft or placeholder, the tools
- * on the bottom row, and the send control on the right.
+ * The app's composer: the draft or placeholder, the tools on the bottom row,
+ * and the send control on the right. It keeps the tall form from `sm` up and
+ * shortens on phones so the thread stays visible.
  */
 export function Composer({
   placeholder = "Reply",
@@ -24,7 +25,9 @@ export function Composer({
       }`}
     >
       <div
-        className={`${compact ? "min-h-[44px]" : "min-h-[68px]"} text-[14px] leading-5 ${
+        className={`${
+          compact ? "min-h-[44px]" : "min-h-[32px] sm:min-h-[68px]"
+        } text-[14px] leading-5 ${
           draft ? "text-ink" : "text-ink-2"
         }`}
       >

@@ -40,6 +40,10 @@ function Amount({ children }: { children: React.ReactNode }) {
   );
 }
 
+/** Keeps the token and venue pills compact enough for two lines on a phone. */
+const CHIP =
+  "gap-[0.3em] pr-[0.35em] [&_img]:size-3.5 sm:gap-[0.4em] sm:pr-[0.7em] sm:[&_img]:size-[18px]";
+
 /**
  * The app's sentence card. The drawer uses a grid-row transition so every
  * expansion animates the card's height instead of snapping the layout.
@@ -71,24 +75,24 @@ export function TradeCard({
         className,
       )}
     >
-      <div className="px-3.5 py-3.5">
+      <div className="px-3 py-3.5 sm:px-3.5">
         <div
           data-sentence
-          className="flex flex-wrap items-center gap-x-1.5 text-[15px] leading-[2] text-ink"
+          className="flex flex-wrap items-center gap-x-1 text-[12px] leading-[1.9] text-ink sm:gap-x-1.5 sm:text-[15px] sm:leading-[2]"
         >
           <span>Swap</span>
-          <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+          <span className="inline-flex items-center gap-1 whitespace-nowrap sm:gap-1.5">
             <Amount>{swap.fromAmount}</Amount>
-            <TokenChip symbol={swap.from} />
+            <TokenChip symbol={swap.from} className={CHIP} />
           </span>
           <span>for</span>
-          <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+          <span className="inline-flex items-center gap-1 whitespace-nowrap sm:gap-1.5">
             <Amount>{swap.toAmount}</Amount>
-            <TokenChip symbol={swap.to} />
+            <TokenChip symbol={swap.to} className={CHIP} />
           </span>
-          <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+          <span className="inline-flex items-center gap-1 whitespace-nowrap sm:gap-1.5">
             <span>on</span>
-            <VenueChip />
+            <VenueChip className={CHIP} />
           </span>
         </div>
       </div>

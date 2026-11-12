@@ -84,9 +84,20 @@ export function TokenChip({
 }
 
 /** The venue the trade settles on: the NEAR mark and the account label. */
-export function VenueChip({ label = "Near Account" }: { label?: string }) {
+export function VenueChip({
+  label = "Near Account",
+  className,
+}: {
+  label?: string;
+  className?: string;
+}) {
   return (
-    <span className="inline-flex items-center gap-[0.4em] whitespace-nowrap rounded-full bg-field py-[0.25em] pl-[0.25em] pr-[0.7em] align-middle font-medium leading-none text-ink">
+    <span
+      className={cn(
+        "inline-flex items-center gap-[0.4em] whitespace-nowrap rounded-full bg-field py-[0.25em] pl-[0.25em] pr-[0.7em] align-middle font-medium leading-none text-ink",
+        className,
+      )}
+    >
       <span aria-hidden className="inline-flex shrink-0">
         <NetworkIcon network="NEAR" size={18} />
       </span>
