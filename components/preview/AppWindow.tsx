@@ -6,6 +6,7 @@ import {
   IconThumbUp,
 } from "@tabler/icons-react";
 import { Composer } from "@/components/preview/Composer";
+import { FocusVignette } from "@/components/preview/FocusVignette";
 import { InteractiveTradeCard } from "@/components/preview/InteractiveTradeCard";
 import { ResearchTrace } from "@/components/preview/ResearchTrace";
 import { Sidebar } from "@/components/preview/Sidebar";
@@ -20,7 +21,7 @@ const sourceLink =
  */
 export function AppWindow() {
   return (
-    <div className="dark overflow-hidden rounded-window border border-line bg-canvas p-2.5 text-ink shadow-overlay">
+    <div className="dark relative overflow-hidden rounded-window border border-line bg-canvas p-2.5 text-ink shadow-overlay">
       <div className="flex min-h-[600px] gap-2.5 lg:min-h-[660px]">
         <Sidebar />
 
@@ -87,8 +88,8 @@ export function AppWindow() {
                   Proposing the 100 USDC to NEAR swap.
                 </p>
 
-                <div className="mt-3">
-                  <InteractiveTradeCard />
+                <div className="mt-3 w-fit" data-focus-target>
+                  <InteractiveTradeCard className="relative z-30 shadow-raised" />
                 </div>
 
                 <div className="mt-2 flex items-center gap-3 text-ink-2">
@@ -118,6 +119,8 @@ export function AppWindow() {
           </div>
         </section>
       </div>
+
+      <FocusVignette />
     </div>
   );
 }

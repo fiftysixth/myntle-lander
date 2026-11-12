@@ -359,6 +359,19 @@ a {
   animation: fade-in 240ms ease-out both;
 }
 
+/* The hero frame's focus scrim: everything outside the trade card's measured
+ * footprint sits a step back, so the card carries the eye first. It is a
+ * quiet scrim rather than a glow, and it never intercepts a click. */
+.focus-vignette {
+  background: radial-gradient(
+    ellipse var(--focus-rx, 34%) var(--focus-ry, 24%) at
+      var(--focus-x, 45%) var(--focus-y, 64%),
+    transparent 0%,
+    transparent 58%,
+    oklch(0.06 0 0 / 0.32) 100%
+  );
+}
+
 @keyframes approval-blur-in {
   from {
     opacity: 0;
