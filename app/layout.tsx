@@ -23,10 +23,10 @@ const jetbrains = JetBrains_Mono({
 const description =
   "Myntle is a chat-first finance app that combines research, news, and analysis in one conversation, then turns what you decide into a trade you approve. It never holds your keys or funds, and the settlement record decides the outcome.";
 
-/* A share card has room for one line under the image, so it carries the
- * tagline the card itself prints rather than the full search description. */
-const socialTitle = "Ask what is happening, then ask for the trade";
-const socialDescription = "A chat-first finance app that shows its sources.";
+/* The share card prints the tagline itself, so the metadata title names the
+ * product instead of repeating the line that sits above the image. */
+const socialTitle = "Myntle";
+const socialDescription = "A powerful chat-first finance app.";
 
 export const metadata: Metadata = {
   /* Vercel supplies its production origin, and an explicit

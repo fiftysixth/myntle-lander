@@ -29,12 +29,93 @@ async function logoDataUri(): Promise<string | null> {
   }
 }
 
+/**
+ * A faint ledger grid gives the card the texture of a record sheet without
+ * competing with the one line it exists to carry.
+ */
+function LedgerGrid() {
+  const step = 56;
+  const columns = Math.ceil(size.width / step);
+  const rows = Math.ceil(size.height / step);
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: size.width,
+        height: size.height,
+        display: "flex",
+      }}
+    >
+      {Array.from({ length: columns + 1 }, (_, index) => (
+        <div
+          key={`v-${index}`}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: index * step,
+            width: 1,
+            height: size.height,
+            background: "#e9e9e9",
+          }}
+        />
+      ))}
+      {Array.from({ length: rows + 1 }, (_, index) => (
+        <div
+          key={`h-${index}`}
+          style={{
+            position: "absolute",
+            top: index * step,
+            left: 0,
+            width: size.width,
+            height: 1,
+            background: "#e9e9e9",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/**
+ * A ruler-like footer replaces the sentence the card used to spell out. The
+ * longer ticks every fifth mark keep it reading as a scale, not a barcode.
+ */
+function LedgerRule() {
+  return (
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        alignItems: "flex-end",
+        justifyContent: "space-between",
+        borderTop: "1px solid #dedede",
+        paddingTop: 16,
+      }}
+    >
+      {Array.from({ length: 31 }, (_, index) => (
+        <div
+          key={index}
+          style={{
+            width: 1,
+            height: index % 5 === 0 ? 12 : 6,
+            background: index % 5 === 0 ? "#c9c9c9" : "#dcdcdc",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 export default async function Image() {
   const logoSrc = await logoDataUri();
 
   return new ImageResponse(
     <div
       style={{
+        position: "relative",
         width: "100%",
         height: "100%",
         display: "flex",
@@ -45,7 +126,28 @@ export default async function Image() {
         fontFamily: "sans-serif",
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: "18px" }}>
+      <LedgerGrid />
+      <div
+        style={{
+          position: "absolute",
+          top: 24,
+          left: 24,
+          width: 1150,
+          height: 580,
+          display: "flex",
+          border: "1px solid #e3e3e3",
+          borderRadius: 14,
+        }}
+      />
+
+      <div
+        style={{
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          gap: 18,
+        }}
+      >
         {logoSrc ? (
           <img
             src={logoSrc}
@@ -77,7 +179,14 @@ export default async function Image() {
         </div>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+      <div
+        style={{
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          gap: "4px",
+        }}
+      >
         <div
           style={{
             fontSize: "54px",
@@ -100,17 +209,8 @@ export default async function Image() {
         </div>
       </div>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          borderTop: "1px solid #dedede",
-          paddingTop: "24px",
-        }}
-      >
-        <div style={{ fontSize: "24px", color: "#6b6b6b" }}>
-          A chat-first finance app that shows its sources.
-        </div>
+      <div style={{ position: "relative", display: "flex" }}>
+        <LedgerRule />
       </div>
     </div>,
   );
