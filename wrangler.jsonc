@@ -1,16 +1,30 @@
 {
-  "$schema": "./node_modules/wrangler/config-schema.json", "name": "myntle-landing", "main": ".open-next/worker.js", "compatibility_date": 
-  "2026-11-13", "compatibility_flags": [
-    "nodejs_compat", "global_fetch_strictly_public"
-  ], "assets": {
-    "directory": ".open-next/assets", "binding": "ASSETS"
-  }, "services": [
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "myntle-landing",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-11-12",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
     {
-      "binding": "WORKER_SELF_REFERENCE", "service": "myntle-landing"
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "myntle-landing"
     }
-  ], "images": {
+  ],
+  "images": {
     "binding": "IMAGES"
-  }, "observability": {
+  },
+  "observability": {
     "enabled": true
-  } // Uncomment after the domain's zone is active in this account. // "routes": [ // { "pattern": "myntle.xyz", "custom_domain": true } // ]
+  }
+
+  // To attach the domain, add a comma after the closing brace above
+  // and uncomment the route below:
+  // "routes": [{ "pattern": "myntle.xyz", "custom_domain": true }]
 }

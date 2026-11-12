@@ -6,10 +6,6 @@ import { SitePageShell } from "@/components/site/SitePageShell";
 import { BLOG_POSTS, getPostMeta } from "@/lib/blog";
 import { POSTS } from "../posts";
 
-/* An article is entirely a function of its slug. This route is allowed to
- * block until the parameter resolves instead of streaming an empty shell. */
-export const instant = false;
-
 export function generateStaticParams() {
   return BLOG_POSTS.map((post) => ({ slug: post.slug }));
 }
