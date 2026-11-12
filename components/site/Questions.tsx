@@ -99,7 +99,10 @@ export function Questions() {
 
           {/* Reserved height: the list keeps the height of its tallest answer
               so opening or closing a question never moves the section. */}
-          <div aria-hidden className="invisible col-start-1 row-start-1">
+          <div
+            aria-hidden
+            className="invisible col-start-1 row-start-1 hidden lg:block"
+          >
             {QUESTIONS.map((item) => (
               <div key={item.q} className="border-b border-line">
                 <div className="flex w-full items-center justify-between gap-4 py-4 text-left text-[14px] font-medium text-ink">
