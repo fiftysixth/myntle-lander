@@ -66,90 +66,82 @@ export function Roadmap() {
               </span>
             </div>
 
-            <div className="border-t border-line">
-              <div
-                role="region"
-                aria-label="Roadmap timeline"
-                className="-mx-6 overflow-x-auto px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:overflow-visible lg:px-0"
-              >
-                <div className="grid min-w-[920px] snap-x snap-mandatory grid-cols-4 gap-x-8 lg:min-w-0">
-                  {QUARTERS.map((item, index) => {
-                    const headingId = `roadmap-quarter-${index}`;
+            <div className="md:border-t md:border-line">
+              <div className="grid grid-cols-1 gap-y-10 md:grid-cols-4 md:gap-x-8 md:gap-y-0">
+                {QUARTERS.map((item, index) => {
+                  const headingId = `roadmap-quarter-${index}`;
 
-                    return (
+                  return (
+                    <div
+                      key={item.quarter}
+                      className="relative border-t border-line pt-8 md:border-t-0"
+                    >
+                      {index > 0 ? (
+                        <span
+                          aria-hidden
+                          className="pointer-events-none absolute inset-y-0 -left-4 hidden w-px md:block"
+                          style={{
+                            backgroundImage:
+                              "repeating-linear-gradient(to bottom, var(--line-strong) 0, var(--line-strong) 3px, transparent 3px, transparent 9px)",
+                          }}
+                        />
+                      ) : null}
+
                       <div
-                        key={item.quarter}
-                        className="relative snap-start pt-8"
+                        className={`inline-flex h-11 items-center rounded-card px-4 text-[13px] font-medium tracking-[-0.01em] ${
+                          item.current ? "text-ink" : "bg-ink text-canvas"
+                        }`}
+                        style={
+                          item.current
+                            ? {
+                                backgroundColor:
+                                  "color-mix(in oklch, var(--attention) 22%, var(--surface))",
+                              }
+                            : undefined
+                        }
                       >
-                        {index > 0 ? (
-                          <span
-                            aria-hidden
-                            className="pointer-events-none absolute inset-y-0 -left-4 w-px"
-                            style={{
-                              backgroundImage:
-                                "repeating-linear-gradient(to bottom, var(--line-strong) 0, var(--line-strong) 3px, transparent 3px, transparent 9px)",
-                            }}
-                          />
-                        ) : null}
-
-                        <div
-                          className={`inline-flex h-11 items-center rounded-card px-4 text-[13px] font-medium tracking-[-0.01em] ${
-                            item.current
-                              ? "text-ink"
-                              : "bg-ink text-canvas"
-                          }`}
-                          style={
-                            item.current
-                              ? {
-                                  backgroundColor:
-                                    "color-mix(in oklch, var(--attention) 22%, var(--surface))",
-                                }
-                              : undefined
-                          }
+                        <h3
+                          id={headingId}
+                          className="whitespace-nowrap leading-none tabular-nums"
                         >
-                          <h3
-                            id={headingId}
-                            className="whitespace-nowrap leading-none tabular-nums"
-                          >
-                            {item.quarter}
-                          </h3>
-                        </div>
-
-                        {item.note ? (
-                          <p className="mt-6 text-[12.5px] leading-[1.5] text-ink-3">
-                            {item.note}
-                          </p>
-                        ) : (
-                          <ul
-                            aria-labelledby={headingId}
-                            className="mt-6 flex flex-col gap-2.5"
-                          >
-                            {item.features?.map((feature) => (
-                              <li
-                                key={feature}
-                                className={`flex gap-2.5 text-[12.5px] leading-[1.5] ${
-                                  item.current ? "text-ink" : "text-ink-2"
-                                }`}
-                              >
-                                <span
-                                  aria-hidden
-                                  className="mt-[0.55em] size-1 shrink-0 rounded-full bg-ink-3"
-                                />
-                                <span
-                                  className={
-                                    item.current ? "font-medium" : undefined
-                                  }
-                                >
-                                  {feature}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
+                          {item.quarter}
+                        </h3>
                       </div>
-                    );
-                  })}
-                </div>
+
+                      {item.note ? (
+                        <p className="mt-6 text-[12.5px] leading-[1.5] text-ink-3">
+                          {item.note}
+                        </p>
+                      ) : (
+                        <ul
+                          aria-labelledby={headingId}
+                          className="mt-6 flex flex-col gap-2.5"
+                        >
+                          {item.features?.map((feature) => (
+                            <li
+                              key={feature}
+                              className={`flex gap-2.5 text-[12.5px] leading-[1.5] ${
+                                item.current ? "text-ink" : "text-ink-2"
+                              }`}
+                            >
+                              <span
+                                aria-hidden
+                                className="mt-[0.55em] size-1 shrink-0 rounded-full bg-ink-3"
+                              />
+                              <span
+                                className={
+                                  item.current ? "font-medium" : undefined
+                                }
+                              >
+                                {feature}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

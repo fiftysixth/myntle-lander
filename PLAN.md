@@ -12,7 +12,7 @@ The landing page is the same room the application lives in: cool paper, white ca
 4. **The assistant proposes, and you decide** — the tools behind the swap, with five read-only tools and one that asks for approval, plus the server-side validation story.
 5. **The record decides the outcome** — a segmented control switching the settlement record between Executed, Refunded, and Failed. This is the product's strongest claim: the record can disagree with the assistant, and the screen has to say so.
 6. **Get started even without a wallet** — passkey first, then EVM, Solana, and NEAR wallets.
-7. **Roadmap** — the title and a one-line subtitle, then a green Current pill above a horizontal timeline of quarter blocks. Q4 2026 is tinted and carries the live features; the following quarters carry short feature lists, with Q3 simply reading "Plans underway." Dashed guides keep the quarters apart.
+7. **Roadmap** — the title and a one-line subtitle, then a green Current pill above the quarter it names. On phones the quarters stack vertically behind hairline rules; from the tablet breakpoint up they sit in four columns, with dashed guides keeping them apart. Q4 2026 is tinted and carries the live features; the following quarters carry short feature lists, with Q3 simply reading "Plans underway."
 8. **Questions** — six prose answers about keys, signatures, failed trades, and what the assistant can see.
 9. **Closing** — one sentence-shaped prompt bar and one action.
 
