@@ -104,7 +104,6 @@ export default async function Image() {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
           borderTop: "1px solid #dedede",
           paddingTop: "24px",
         }}
@@ -112,7 +111,6 @@ export default async function Image() {
         <div style={{ fontSize: "24px", color: "#6b6b6b" }}>
           A chat-first finance app that shows its sources.
         </div>
-        <div style={{ fontSize: "22px", color: "#9a9a9a" }}>myntle</div>
       </div>
     </div>,
   );

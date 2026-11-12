@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
 import { THEME_COLORS } from "@/lib/theme";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, X_HANDLE } from "@/lib/site";
 import "./globals.css";
 
 /* The stored theme has to be on <html> before the first paint. An effect is
@@ -23,6 +23,11 @@ const jetbrains = JetBrains_Mono({
 const description =
   "Myntle is a chat-first finance app that combines research, news, and analysis in one conversation, then turns what you decide into a trade you approve. It never holds your keys or funds, and the settlement record decides the outcome.";
 
+/* A share card has room for one line under the image, so it carries the
+ * tagline the card itself prints rather than the full search description. */
+const socialTitle = "Ask what is happening, then ask for the trade";
+const socialDescription = "A chat-first finance app that shows its sources.";
+
 export const metadata: Metadata = {
   /* Vercel supplies its production origin, and an explicit
    * NEXT_PUBLIC_SITE_URL wins over it. The local fallback keeps a plain
@@ -38,14 +43,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Myntle",
-    title: "Myntle",
-    description,
+    title: socialTitle,
+    description: socialDescription,
     locale: "en_US",
+    ...(SITE_URL ? { url: "/" } : {}),
   },
+  /* Title, description, and image follow each route's openGraph card, so a
+   * blog post does not inherit the landing page's tagline on X. */
   twitter: {
     card: "summary_large_image",
-    title: "Myntle",
-    description,
+    site: X_HANDLE,
   },
 };
 

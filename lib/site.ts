@@ -12,17 +12,18 @@ export const SITE_URL =
   (vercelOrigin ? `https://${vercelOrigin}` : undefined);
 
 /**
- * The GitHub origin is the project repository. The X handle is a placeholder
- * until the project account is confirmed; set NEXT_PUBLIC_X_URL to override it.
+ * The GitHub origin is the project repository. Set NEXT_PUBLIC_X_URL to point
+ * the footer at a different X account.
  */
 export const SOCIAL_LINKS = {
   github:
     process.env.NEXT_PUBLIC_GITHUB_URL?.trim() ||
     "https://github.com/myntlefinance/myntle",
-  x:
-    process.env.NEXT_PUBLIC_X_URL?.trim() ||
-    "https://x.com/myntlefinance",
+  x: process.env.NEXT_PUBLIC_X_URL?.trim() || "https://x.com/myntlefinance",
 } as const;
+
+/** The account X credits when a link is shared. */
+export const X_HANDLE = "@myntlefinance";
 
 export const DOCS_URL =
   "https://github.com/myntlefinance/myntle#readme";

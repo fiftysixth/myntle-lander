@@ -34,6 +34,17 @@ export async function generateMetadata({
       description: post.excerpt,
       type: "article",
       publishedTime: post.dateISO,
+      /* A page-level openGraph object replaces the layout's, including its
+       * image, so the card image is named here. */
+      images: [
+        {
+          url: "/opengraph-image",
+          type: "image/png",
+          width: 1200,
+          height: 630,
+          alt: "Myntle — Ask what is happening, then ask for the trade",
+        },
+      ],
     },
   };
 }
