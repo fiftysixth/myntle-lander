@@ -49,7 +49,7 @@ export function LoginDialog() {
   const [chain, setChain] = useState<Chain>("evm");
 
   return (
-    <div className="dark mx-auto w-full max-w-[520px] overflow-hidden rounded-window border border-line bg-surface text-ink shadow-overlay">
+    <div className="dark w-full max-w-[520px] overflow-hidden rounded-window border border-line bg-surface text-ink shadow-overlay">
       <div className="flex h-11 items-center justify-between border-b border-line pl-4 pr-2.5">
         <div className="flex min-w-0 items-center gap-1.5">
           <IconUser size={14} stroke={2} className="shrink-0 text-ink-2" aria-hidden />
@@ -141,7 +141,7 @@ export function LoginDialog() {
                     height={24}
                     className="size-6 shrink-0 object-contain"
                   />
-                  <span className="min-w-0 flex-1 truncate text-[13px] font-medium text-ink">
+                  <span className="min-w-0 flex-1 break-words text-[13px] font-medium leading-tight text-ink">
                     {wallet.name}
                   </span>
                 </div>

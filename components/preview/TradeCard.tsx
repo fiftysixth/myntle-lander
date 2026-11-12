@@ -112,7 +112,7 @@ export function TradeCard({
         </div>
       </div>
 
-      <div className="flex min-h-[39px] items-center justify-between gap-3 px-2.5 py-1.5">
+      <div className="flex min-h-[39px] items-center justify-between gap-2 px-2 py-1.5 sm:gap-3 sm:px-2.5">
         <Button
           type="button"
           variant="secondary"
